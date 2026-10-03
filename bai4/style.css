@@ -1,0 +1,85 @@
+:root {
+  /* --- KHAI BÁO BIẾN CHO GIAO DIỆN SÁNG (LIGHT THEME - MẶC ĐỊNH) --- */
+  --bg-color: #ffffff;
+  --text-color: #1f2937;
+  --card-bg: #f3f4f6;
+  --border-color: #e5e7eb;
+  --btn-bg: #2563eb;
+  --btn-text: #ffffff;
+}
+
+/* --- KHI BODY CÓ CLASS .dark-theme, CÁC BIẾN SẼ ĐƯỢC GHI ĐÈ --- */
+body.dark-theme {
+  --bg-color: #111827;
+  --text-color: #f9fafb;
+  --card-bg: #1f2937;
+  --border-color: #374151;
+  --btn-bg: #60a5fa;
+  --btn-text: #111827;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+  Sử dụng thuộc tính transition để tạo cảm giác chuyển đổi màu sắc mượt mà 
+  cho tất cả các thuộc tính liên quan đến màu (background, color, border...)
+*/
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  
+  /* Tiêu chí: Giao diện chuyển đổi màu sắc mượt mà */
+  transition: background-color 0.4s ease, color 0.4s ease;
+  
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  
+  /* Chuyển mượt cho card */
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+button {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  
+  /* Chuyển mượt cho button */
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}

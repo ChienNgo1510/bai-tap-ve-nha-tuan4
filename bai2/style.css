@@ -1,0 +1,84 @@
+:root {
+  /* Màu sắc */
+  --color-bg: #f3f4f6;
+  --color-card-bg: #ffffff;
+  --color-title: #1f2937;
+  --color-text: #4b5563;
+  
+  /* Kích thước & Khoảng cách (Mobile) */
+  --spacing-padding: 1rem;
+  --spacing-gap: 1rem;
+  --border-radius: 12px;
+  --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+  /* Biến Layout cho Card (Mobile First) */
+  --card-flex-direction: column;
+  --card-image-width: 100%;
+}
+
+@media (min-width: 600px) {
+  :root {
+    /* Điều chỉnh biến Layout cho Desktop */
+    --card-flex-direction: row;
+    --card-image-width: 300px;
+    --spacing-padding: 1.5rem;
+    --spacing-gap: 0; /* Khi là row, ảnh và chữ có thể tự cân đối hoặc dùng gap */
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-bg);
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card Container */
+.card {
+  background-color: var(--color-card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  
+  /* Áp dụng Flexbox */
+  display: flex;
+  flex-direction: var(--card-flex-direction);
+  gap: var(--spacing-gap);
+}
+
+/* Image */
+.card-img {
+  width: var(--card-image-width);
+  height: auto;
+  object-fit: cover;
+  flex-shrink: 0; /* Không cho phép ảnh bị bóp méo */
+}
+
+/* Content Box */
+.card-content {
+  padding: var(--spacing-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-title {
+  color: var(--color-title);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-desc {
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.5;
+}

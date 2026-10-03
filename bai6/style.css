@@ -1,0 +1,135 @@
+:root {
+  /* Biến màu sắc */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg-color: #f8fafc;
+  --surface: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border: #cbd5e1;
+  --border-focus: #3b82f6;
+
+  /* Biến khoảng cách & kích thước chung */
+  --radius: 8px;
+  --input-padding: 0.75rem 1rem;
+  
+  /* --- MOBILE FIRST LAYOUT --- */
+  /* Ở Mobile: Không có margin, Form chiếm 100% không gian màn hình, không có bóng đổ */
+  --form-max-width: 100%;
+  --form-padding: 1.5rem;
+  --form-margin-top: 0;
+  --form-shadow: none;
+  --form-border-radius: 0;
+}
+
+@media (min-width: 600px) {
+  :root {
+    /* --- CẬP NHẬT CHO DESKTOP --- */
+    /* Ở Desktop: Giới hạn chiều rộng, có margin căn giữa, có viền và bóng đổ để trông chuyên nghiệp */
+    --form-max-width: 500px;
+    --form-padding: 2.5rem;
+    --form-margin-top: 3rem;
+    --form-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --form-border-radius: 12px;
+  }
+}
+
+/* Reset cơ bản */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  /* Dùng flex để dễ dàng căn giữa container trên Desktop */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* Container chứa Form */
+.contact-container {
+  background-color: var(--surface);
+  width: 100%;
+  max-width: var(--form-max-width);
+  padding: var(--form-padding);
+  margin-top: var(--form-margin-top);
+  border-radius: var(--form-border-radius);
+  box-shadow: var(--form-shadow);
+  
+  /* Hiệu ứng mượt mà khi cửa sổ kéo qua lại mốc 600px */
+  transition: all 0.3s ease;
+}
+
+.contact-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+  text-align: center;
+}
+
+.contact-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Các trường nhập liệu */
+.form-group {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column; /* Đảm bảo label và input nằm trên/dưới nhau */
+}
+
+.form-label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-input, .form-textarea {
+  width: 100%; /* Quan trọng: luôn chiếm 100% chiều rộng của container */
+  padding: var(--input-padding);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); /* Hiệu ứng focus chuyên nghiệp */
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Nút Submit */
+.form-submit {
+  width: 100%; /* Trên mobile hay desktop đều đẹp */
+  padding: 0.875rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.form-submit:hover {
+  background-color: var(--primary-hover);
+}

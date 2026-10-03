@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4: Dark/Light Mode Theme System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- Bạn có thể thử nghiệm bằng cách gõ thêm class="dark-theme" vào thẻ body ở dòng dưới -->
+<body>
+    <div class="container">
+        <h1>Theme System với CSS Variables</h1>
+        <p>Bằng cách sử dụng CSS Variables, việc tạo chế độ Dark Mode trở nên cực kì đơn giản. Chúng ta chỉ cần một class để ghi đè lại giá trị của các biến màu sắc. Hãy bấm vào nút bên dưới để thêm/xóa class <code>.dark-theme</code> vào thẻ <code>&lt;body&gt;</code>.</p>
+        
+        <button id="toggleBtn">Chuyển đổi Dark Mode</button>
+    </div>
+
+    <!-- Script nhỏ hỗ trợ bật tắt class để bạn dễ kiểm tra tính mượt mà -->
+    <script>
+        const btn = document.getElementById('toggleBtn');
+        btn.addEventListener('click', () => {
+            // Tự động thêm/xóa class "dark-theme" ở thẻ <body>
+            document.body.classList.toggle('dark-theme');
+        });
+    </script>
+</body>
+</html>

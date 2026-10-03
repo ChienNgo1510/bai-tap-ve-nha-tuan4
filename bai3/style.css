@@ -1,0 +1,96 @@
+:root {
+  /* Màu sắc chủ đạo */
+  --color-primary: #2563eb;
+  --color-on-primary: #ffffff;
+  --color-hover: #60a5fa;
+
+  /* Kích thước */
+  --nav-height: 64px;
+  --spacing-horizontal: 1.5rem;
+  
+  /* Trạng thái hiển thị (Mobile First) */
+  --menu-links-display: none;     /* Ẩn các liên kết menu trên mobile */
+  --menu-toggle-display: block;   /* Hiển thị nút Hamburger trên mobile */
+}
+
+@media (min-width: 768px) {
+  :root {
+    /* Trạng thái hiển thị (Desktop) */
+    --menu-links-display: flex;   /* Hiển thị các liên kết dưới dạng ngang (flex) */
+    --menu-toggle-display: none;  /* Ẩn nút Hamburger trên Desktop */
+  }
+}
+
+/* Reset CSS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
+}
+
+/* Thanh điều hướng */
+.navbar {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  height: var(--nav-height);
+  padding: 0 var(--spacing-horizontal);
+  
+  display: flex;
+  justify-content: space-between; /* Đẩy Logo và Menu/Nút ra 2 bên */
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Nút Hamburger Menu */
+.menu-toggle {
+  display: var(--menu-toggle-display);
+  background: transparent;
+  color: var(--color-on-primary);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Danh sách Menu */
+.nav-links {
+  display: var(--menu-links-display);
+  gap: 2rem; /* Khoảng cách giữa các link */
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--color-on-primary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-hover);
+}
+
+/* Phần nội dung trang mẫu */
+.content {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}

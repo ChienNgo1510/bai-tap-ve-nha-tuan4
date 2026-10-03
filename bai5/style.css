@@ -1,0 +1,59 @@
+:root {
+  /* Khai báo biến quản lý khoảng cách và kích thước cột */
+  --gallery-gap: 1.5rem;
+  --column-min-width: 250px;
+  
+  --bg-color: #f8fafc;
+  --text-color: #334155;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 
+  TRỌNG TÂM BÀI TOÁN:
+  Sử dụng Grid auto-fit và minmax() để tự động điều chỉnh số cột
+  mà không cần bất kỳ một dòng Media Query nào.
+*/
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--column-min-width), 1fr));
+  gap: var(--gallery-gap);
+  
+  /* Giới hạn độ rộng tối đa để trông đẹp hơn trên màn hình cực to */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Style cho từng bức ảnh */
+.gallery-item {
+  width: 100%;
+  height: 250px;
+  object-fit: cover; /* Đảm bảo ảnh không bị méo tỉ lệ */
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+  /* Hiệu ứng di chuột cho sinh động */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
